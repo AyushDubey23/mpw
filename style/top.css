@@ -1,0 +1,140 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#top {
+    background-color: #fff;
+    font-family: 'Roboto Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.header {
+    text-align: center;
+    color: #272341;
+    position: relative;
+}
+
+h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+.nav {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 40px;
+}
+
+.btn {
+    color: #272341;
+    line-height: 1.6rem;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+.header-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    z-index: 4;
+}
+
+.icon {
+    font-size: 25px;
+    padding: 10px;
+    text-decoration: none;
+    color: #5a4fcf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f5f5ff;
+    transition: background-color 0.3s;
+}
+
+.icon:hover {
+    background-color: #eaeaff;
+}
+
+#down {
+    font-size: 40px !important;
+    margin-top: 20px;
+    text-align: center;
+    z-index: 5;
+}
+
+#top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablets and larger phones */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    .nav {
+        font-size: 18px;
+        margin-top: 30px;
+    }
+
+    .header-icons {
+        gap: 10px;
+    }
+
+    .icon {
+        font-size: 20px;
+        width: 35px;
+        height: 35px;
+    }
+
+    #down {
+        font-size: 32px !important;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    .nav {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    .header-icons {
+        gap: 8px;
+    }
+
+    .icon {
+        font-size: 18px;
+        width: 30px;
+        height: 30px;
+    }
+
+    #down {
+        font-size: 28px !important;
+    }
+}
