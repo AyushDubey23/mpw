@@ -35,10 +35,52 @@
 
 
         <div class="header">
-
-              <h1>
-                Hi, my name is <span class="gradient name">Ayush Dubey</span>
-              </h1>
+          <h1>
+            Hi, my name is <span class="break-on-mobile">Ayush Dubey</span>
+          </h1>
+        
+          <div class="subtitle">
+            a<span class="dynamic-text"></span>
+          </div>
+        
+          <script>
+            const roles = [
+              " Competitive Programmer ",
+              " Machine Learning Enthusiast ",
+              " Web Developer  ",
+              "n Open-Source Contributor  "
+            ];
+        
+            const textEl = document.querySelector(".dynamic-text");
+            let roleIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+        
+            function typeEffect() {
+              const currentRole = roles[roleIndex];
+              const displayedText = isDeleting
+                ? currentRole.substring(0, charIndex--)
+                : currentRole.substring(0, charIndex++);
+        
+              textEl.textContent = displayedText;
+        
+              let speed = isDeleting ? 50 : 100;
+        
+              if (!isDeleting && charIndex === currentRole.length) {
+                speed = 1500;
+                isDeleting = true;
+              } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                speed = 500;
+              }
+        
+              setTimeout(typeEffect, speed);
+            }
+        
+            typeEffect();
+          </script>
+        
 
             <div class="header-icons">
 
