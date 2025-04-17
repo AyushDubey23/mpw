@@ -39,6 +39,12 @@ h1, h2 {
     from, to { border-color: transparent }
     50% { border-color: #333 }
   }
+  @media (max-width: 600px) {
+    .name {
+      display: block; /* Forces 'Ayush Dubey' to the next line */
+      margin-top: 4px; /* Optional: adds spacing between lines */
+    }
+  }
   
 
 .section-style {
