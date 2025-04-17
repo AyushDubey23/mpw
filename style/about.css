@@ -24,7 +24,7 @@ h1, h2 {
     font-family: 'Roboto Mono', monospace;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 2px solid #333; /* blinking cursor */
+    border-right: 2px solid #333;
     animation: typing 2s steps(20), blink 0.75s step-end infinite;
   }
   
@@ -39,10 +39,20 @@ h1, h2 {
     from, to { border-color: transparent }
     50% { border-color: #333 }
   }
+  
+  /* ✅ This is the key fix */
   @media (max-width: 600px) {
+    h1, h2 {
+      white-space: normal;      /* Allow line breaks */
+      overflow: visible;        /* Show content */
+      border-right: none;       /* Optional */
+      animation: none;          /* Optional */
+    }
+  
     .name {
-      display: block; /* Forces 'Ayush Dubey' to the next line */
-      margin-top: 4px; /* Optional: adds spacing between lines */
+      display: inline-block;
+      width: 100%;
+      margin-top: 4px;
     }
   }
   
