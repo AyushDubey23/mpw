@@ -20,9 +20,26 @@ body {
     padding: 20px;
 }
 
-h1, h2, h3, p {
+h1, h2 {
     font-family: 'Roboto Mono', monospace;
-}
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #333; /* blinking cursor */
+    animation: typing 2s steps(20), blink 0.75s step-end infinite;
+  }
+  
+  /* Typing animation */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* Blinking cursor */
+  @keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: #333 }
+  }
+  
 
 .section-style {
     background-image: linear-gradient(135deg, #43B7B8, #436AAC, #8929AD);
