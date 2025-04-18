@@ -20,11 +20,18 @@ body {
     padding: 20px;
 }
 
-h1, h2 {
+h1{
     font-family: 'Roboto Mono', monospace;
     white-space: nowrap;
     overflow: hidden;
     border-right: 2px solid #333;
+    animation: typing 2s steps(20), blink 0.75s step-end infinite;
+  }
+  
+h2 {
+    font-family: 'Roboto Mono', monospace;
+    white-space: nowrap;
+    overflow: hidden;
     animation: typing 2s steps(20), blink 0.75s step-end infinite;
   }
   
@@ -61,7 +68,7 @@ h2, h3, p {
 }
 
 .section-style {
-    background-image: linear-gradient(135deg, #43B7B8, #436AAC, #8929AD);
+    background-image: linear-gradient(135deg, #000000, hsl(271, 83%, 47%), #000000);
     padding: 15px;
     padding-bottom: 10px;
     border-top: 0;
@@ -104,21 +111,12 @@ h2, h3, p {
     font-size: 1.2em;
     margin-top: 10px;
     font-family: 'Roboto Mono', monospace;
-    color: #6C63FF; /* beautiful soft purple */
+    color: #261ec0; /* beautiful soft purple */
     white-space: nowrap;
     overflow: hidden;
   }
-  
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-  }
-  
-  @keyframes blink {
-    from, to { border-color: transparent }
-    50% { border-color: #000000 }
-  }
-  
+
+
 /* Buttons */
 .buttons {
     display: flex;
