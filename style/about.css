@@ -161,25 +161,91 @@ h2, h3, p {
 }
 
 .btn-1 {
-    background: rgba(105, 64, 228, 0.8);
+    background: rgba(18, 8, 45, 0.8);
     font-weight: 100;
     transition: font-weight 0.3s ease;
 }
 
+.btn-1 {
+    position: relative;
+    display: inline-flex; /* Use flexbox for alignment */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    padding: 14px 28px;
+    background-color: #4B0082; /* Initial black-purple background color */
+    color: #fff; /* Text color */
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s; /* Smooth transition */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
 .btn-1 svg {
-    height: 45px;
-    left: 0;
+    height: 100%;
+    width: 100%;
     position: absolute;
     top: 0;
-    width: 100%;
+    left: 0;
+    pointer-events: none;
 }
 
 .btn-1 rect {
     fill: none;
-    stroke: #fff;
+    stroke: #9b59b6; /* Soft purple aesthetic stroke */
     stroke-width: 2;
-    stroke-dasharray: 422, 0;
-    transition: all 0.35s linear;
+    stroke-dasharray: 422;
+    stroke-dashoffset: 422;
+    transition: stroke-dashoffset 0.8s ease, stroke 0.3s ease;
+}
+
+.btn-1:hover rect {
+    stroke-dashoffset: 0;
+    stroke: #e1bee7; /* Glowing-ish pink-purple on hover */
+}
+
+.btn-1::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.4s ease-out;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.btn-1:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-1:hover {
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Gradient background on hover */
+}
+
+.btn-1:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1); /* Slight glow effect */
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 8px; /* Match button's border-radius */
 }
 
 .btn-1:hover {
