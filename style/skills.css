@@ -4,49 +4,35 @@
     border-radius: 15px;
 }
 
-.cards-main {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Default to four columns */
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-    padding: 30px 20px;
+/* Slider styles */
+.slider-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
 }
 
-/* Adjust grid layout for smaller screens */
-@media (max-width: 1200px) {
-    .cards-main {
-        grid-template-columns: repeat(3, 1fr); /* Three columns for medium screens */
-    }
+.slider-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 60s linear infinite;
 }
 
-@media (max-width: 900px) {
-    .cards-main {
-        grid-template-columns: repeat(2, 1fr); /* Two columns for small screens */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
     }
-}
-@media (max-width: 600px) {
-    .cards-main {
-        display: flex;
-        flex-wrap: wrap; /* Allow items to wrap to the next line */
-        gap: 10px; /* Space between the cards */
-        width: 100%; /* Ensure full width */
-        box-sizing: border-box; /* Include padding and border in width */
-        padding: 0 10px; /* Optional: Add padding to prevent content from touching the edges */
-    }
-
-    .cards-main > * {
-        flex: 1 1 calc(50% - 10px); /* Two items per row with gap consideration */
-        box-sizing: border-box; /* Ensure child elements also respect box-sizing */
-    }
-
-    body, html {
-        overflow-x: hidden; /* Prevent horizontal scrolling */
-        margin: 0; /* Remove default margin */
-        padding: 0; /* Remove default padding */
+    100% {
+        transform: translateX(-50%);
     }
 }
 
+/* Optional pause on hover */
+.slider-container:hover .slider-track {
+    animation-play-state: paused;
+}
 
+/* Skill card style */
 .card {
     background-color: #fff;
     padding: 2rem;
@@ -55,6 +41,9 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     transform: scale(0.98);
+    min-width: 200px; /* Ensures fixed width for smooth scrolling */
+    margin-right: 20px;
+    flex-shrink: 0;
 }
 
 .card:hover {
@@ -62,8 +51,52 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Image inside card */
 .img-card {
     height: 144px;
     width: 144px;
     border-radius: 10px;
+}
+
+/* Cards grid (unused in slider, but kept for reference) */
+.cards-main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    padding: 30px 20px;
+}
+
+@media (max-width: 1200px) {
+    .cards-main {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .cards-main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .cards-main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 10px;
+    }
+
+    .cards-main > * {
+        flex: 1 1 calc(50% - 10px);
+        box-sizing: border-box;
+    }
+
+    body, html {
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+    }
 }
